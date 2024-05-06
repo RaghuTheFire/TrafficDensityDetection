@@ -24,9 +24,11 @@ int main()
   std::vector < std::string > classNames;
   std::string classFile = "names";
   std::ifstream file(classFile);
-  if (file.is_open()) {
+  if (file.is_open()) 
+  {
     std::string line;
-    while (std::getline(file, line)) {
+    while (std::getline(file, line)) 
+    {
       classNames.push_back(line);
     }
     file.close();
@@ -68,10 +70,13 @@ int main()
     int vehicle_count = 0;
 
     // Process detections
-    for (size_t i = 0; i < classIds.size(); i++) {
+    for (size_t i = 0; i < classIds.size(); i++) 
+    {
       // Check if the detected object is a vehicle (using specific class IDs for vehicles)
       // Example class IDs for different types of vehicles:
-      if (classIds[i] == 2 || classIds[i] == 3 || classIds[i] == 4 || classIds[i] == 8) { // bicycle, car, motorcycle, truck
+      if (classIds[i] == 2 || classIds[i] == 3 || classIds[i] == 4 || classIds[i] == 8) 
+      { 
+        // bicycle, car, motorcycle, truck
         vehicle_count++;
         // Draw a bounding box around the detected vehicle
         cv::rectangle(img, boxes[i], cv::Scalar(0, 255, 0), 2);
@@ -95,7 +100,8 @@ int main()
     cv::imshow("Output", img);
 
     // Break the loop if the 'q' key is pressed
-    if (cv::waitKey(1) == 'q') {
+    if (cv::waitKey(1) == 'q') 
+    {
       break;
     }
   }
